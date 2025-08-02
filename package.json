@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@uiw/react-heat-map": "^2.3.3",
-    "react-router-dom": "^7.7.1"
-  }
-}
