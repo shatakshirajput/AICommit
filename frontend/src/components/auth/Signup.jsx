@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext";
-
-import { PageHeader } from "@primer/react";
-import { Box, Button } from "@primer/react";
+import { Link } from "react-router-dom";
 import "./auth.css";
 
-import { Link } from "react-router-dom";
-
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("nsm@example.com");
+  const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { setCurrentUser } = useAuth();
@@ -24,7 +21,7 @@ const Signup = () => {
       const res = await axios.post("http://localhost:3000/signup", {
         email: email,
         password: password,
-        username: username,
+        username: fullName,
       });
 
       localStorage.setItem("token", res.data.token);
@@ -42,73 +39,97 @@ const Signup = () => {
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="signup-page">
+      <div className="signup-container">
+        <div className="signup-card">
+          <div className="signup-header">
+            <h1>Create your account</h1>
+            <p className="subtitle">Start your journey with AI-powered development</p>
+          </div>
 
-      <div className="login-box-wrapper">
-        <div className="login-heading">
-          <Box sx={{ padding: 1 }}>
-            <PageHeader>
-              <PageHeader.TitleArea variant="large">
-                <PageHeader.Title>Sign Up</PageHeader.Title>
-              </PageHeader.TitleArea>
-            </PageHeader>
-          </Box>
+          <form onSubmit={handleSignup} className="signup-form">
+            <div className="form-group">
+              <label htmlFor="fullName">Full Name</label>
+              <p className="input-description">Enter your full name</p>
+              <input
+                type="text"
+                id="fullName"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <p className="input-description">Create a strong password</p>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <p className="input-description">Confirm your password</p>
+              <input
+                type="password"
+                id="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+
+            <div className="terms-checkbox">
+              <input type="checkbox" id="terms" />
+              <label htmlFor="terms">tapes to the Turns of Service and Privacy Policy</label>
+            </div>
+
+            <button type="submit" className="create-account-btn" disabled={loading}>
+              {loading ? "Loading..." : "Create Account"}
+            </button>
+
+            <div className="login-link">
+              Already have an account? <Link to="/auth">Sign in</Link>
+            </div>
+          </form>
+
+          <div className="security-note">
+            Powered by enterprise-grade security. You start a encrypted real account.
+          </div>
         </div>
+      </div>
 
-        <div className="login-box">
-          <div>
-            <label className="label">Username</label>
-            <input
-              autoComplete="off"
-              name="Username"
-              id="Username"
-              className="input"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+      <div className="features-panel">
+        <div className="features-content">
+          <h1>Why developers choose</h1>
+          <h2>AICommit</h2>
+
+          <div className="feature">
+            <h3>Lightning Fast Setup</h3>
+            <p>Get started in minutes with our intuitive onboarding process and a powered repository setup.</p>
           </div>
 
-          <div>
-            <label className="label">Email address</label>
-            <input
-              autoComplete="off"
-              name="Email"
-              id="Email"
-              className="input"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <div className="feature">
+            <h3>Enterprise Security</h3>
+            <p>Enter-level encryption will security measures to keep your needs safe and secure.</p>
           </div>
 
-          <div className="div">
-            <label className="label">Password</label>
-            <input
-              autoComplete="off"
-              name="Password"
-              id="Password"
-              className="input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          <div className="feature">
+            <h3>AI-Powered Features</h3>
+            <p>Automatic RSA/USB gatepredict, smart commit messages, and intelligent code analysis.</p>
           </div>
-
-          <Button
-            variant="primary"
-            className="login-btn"
-            disabled={loading}
-            onClick={handleSignup}
-          >
-            {loading ? "Loading..." : "Signup"}
-          </Button>
-        </div>
-
-        <div className="pass-box">
-          <p>
-            Already have an account? <Link to="/auth">Login</Link>
-          </p>
         </div>
       </div>
     </div>
