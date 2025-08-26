@@ -50,7 +50,6 @@ const Signup = () => {
           <form onSubmit={handleSignup} className="signup-form">
             <div className="form-group">
               <label htmlFor="fullName">Full Name</label>
-              <p className="input-description">Enter your full name</p>
               <input
                 type="text"
                 id="fullName"
@@ -71,7 +70,6 @@ const Signup = () => {
 
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <p className="input-description">Create a strong password</p>
               <input
                 type="password"
                 id="password"
@@ -82,19 +80,13 @@ const Signup = () => {
 
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <p className="input-description">Confirm your password</p>
               <input
                 type="password"
                 id="confirmPassword"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-            </div>
-
-            <div className="terms-checkbox">
-              <input type="checkbox" id="terms" />
-              <label htmlFor="terms">tapes to the Turns of Service and Privacy Policy</label>
-            </div>
+            </div><br />
 
             <button type="submit" className="create-account-btn" disabled={loading}>
               {loading ? "Loading..." : "Create Account"}
@@ -113,8 +105,8 @@ const Signup = () => {
 
       <div className="features-panel">
         <div className="features-content">
-          <h1>Why developers choose</h1>
-          <h2>AICommit</h2>
+          <h1>Why developers choose
+          <span class="title">  AICommit</span></h1>
 
           <div className="feature">
             <h3>Lightning Fast Setup</h3>

@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext";
-
-import { PageHeader } from "@primer/react";
-import { Box, Button } from "@primer/react";
 import "./auth.css";
-
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -25,7 +21,7 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:3000/login", {
+      const res = await axios.post("http://localhost:3002/login", {
         email: email,
         password: password,
       });
@@ -95,7 +91,7 @@ const Login = () => {
         <div className="pass-box">
           <p>
             New to GitHub? <Link to="/signup">Create an account</Link>
-          </p>   
+          </p>
         </div>
       </div>
     </div>
