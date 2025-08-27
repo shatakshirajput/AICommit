@@ -42,7 +42,6 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-
       <div className="login-box-wrapper">
         <div className="login-heading">
           <Box sx={{ padding: 1 }}>
@@ -78,7 +77,6 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
           <Button
             variant="primary"
             className="login-btn"
@@ -97,5 +95,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
