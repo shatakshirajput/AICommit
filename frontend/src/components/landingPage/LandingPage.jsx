@@ -147,6 +147,15 @@ const LandingPage = () => {
         </div>
       </div>
     </section>
+
+    <section>
+      <div class = "dashboard-title" > 
+        <h1>DashBoard</h1>
+      </div>
+      <div className="dashborad-img">
+        <img src="/loginsignupimg.avif" alt="dashboard" />
+      </div>
+    </section>
     </div>
   );
 };
