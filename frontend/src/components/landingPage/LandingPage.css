@@ -314,3 +314,11 @@ body {
   color: #666;
   font-size: 1rem;
 }
+
+.dashboard-title h1{
+  font-size: 2.5rem;
+}
+
+.dashboard-img{
+  margin-bottom: 100px;
+}

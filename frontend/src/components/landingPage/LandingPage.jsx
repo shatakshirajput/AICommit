@@ -152,10 +152,20 @@ const LandingPage = () => {
       <div class = "dashboard-title" > 
         <h1>DashBoard</h1>
       </div>
-      <div className="dashborad-img">
+      <div className="dashboard-img">
         <img src="/loginsignupimg.avif" alt="dashboard" />
       </div>
     </section>
+
+    <section>
+      <div class = "dashboard-title" > 
+        <h1>Repository operations in seconds...</h1>
+      </div>
+      <div className="dashboard-img">
+        <img src="/loginsignupimg.avif" alt="repo page img " />
+      </div>
+    </section>
+
     </div>
   );
 };
