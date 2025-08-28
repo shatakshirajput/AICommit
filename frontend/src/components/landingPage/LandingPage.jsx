@@ -6,7 +6,7 @@ import { FaBrain, FaTerminal, FaDatabase, FaBolt, FaGithub, FaMagic } from "reac
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const features = [
+  const features = [                                                  
     {
       icon: <FaBrain />,
       title: "AI-Generated README",
